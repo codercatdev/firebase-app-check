@@ -16,14 +16,18 @@
   const q = query(collection(db, "counts"), orderBy("date", "desc"), limit(5));
 
   $: counts = [];
-
-  const unsubscribe = onSnapshot(q, (querySnapshot) => {
-    const allCounts = [];
-    querySnapshot.forEach((doc) => {
-      allCounts.push({ id: doc.id, ...doc.data() });
-    });
-    counts = allCounts;
-  });
+  $: error = "";
+  const unsubscribe = onSnapshot(
+    q,
+    (querySnapshot) => {
+      const allCounts = [];
+      querySnapshot.forEach((doc) => {
+        allCounts.push({ id: doc.id, ...doc.data() });
+      });
+      counts = allCounts;
+    },
+    (e) => (error = e.message)
+  );
 
   onDestroy(() => {
     unsubscribe();
@@ -44,6 +48,11 @@
       <div><span>Count: </span><span>{count.count}</span></div>
     </div>
   {/each}
+  {#if error}
+    <div class="error">
+      {error}
+    </div>
+  {/if}
 </section>
 
 <style>
@@ -66,5 +75,10 @@
     font-weight: 500;
     font-family: inherit;
     background-color: #2f2f2f;
+  }
+  .error {
+    background-color: red;
+    font-size: 2rem;
+    padding: 1rem;
   }
 </style>

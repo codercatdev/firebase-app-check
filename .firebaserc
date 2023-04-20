@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "ccd-firebase-app-check"
-  }
+  },
+  "targets": {
+    "ccd-firebase-app-check": {
+      "hosting": {
+        "with": [
+          "ccd-firebase-app-check"
+        ],
+        "without": [
+          "ccd-firebase-app-check-without"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

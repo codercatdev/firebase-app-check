@@ -1,7 +1,9 @@
 <script>
   import Firebase_Logo_Logomark from "./assets/Firebase_Logo_Logomark.svg";
+  import ReCaptcha from "./assets/recaptcha_48dp.png";
   import { initializeApp } from "firebase/app";
-  import { getFirestore } from "firebase/firestore";
+  import Counter from "./lib/Counter.svelte";
+  import CounterReader from "./lib/CounterReader.svelte";
 
   const firebaseConfig = {
     apiKey: "AIzaSyAH2JT998LjBxxJO0eX_V5LPAyhhxV2fQQ",
@@ -14,18 +16,31 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
 </script>
 
 <main>
   <div>
     <a href="https://firebase.google.com" target="_blank" rel="noreferrer">
-      <img src={Firebase_Logo_Logomark} class="logo" alt="Firebase Logo" />
+      <img
+        src={Firebase_Logo_Logomark}
+        class="logo firebase"
+        alt="Firebase Logo"
+      />
+    </a>
+    <a
+      href="https://developers.google.com/recaptcha"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <img src={ReCaptcha} class="logo" alt="Recaptcha Logo" />
     </a>
   </div>
-  <h1>Firebase without App Check</h1>
+  <h1>Firebase with App Check (using reCAPTCHA)</h1>
 
-  <div class="card" />
+  <div class="card">
+    <Counter {app} />
+    <CounterReader {app} />
+  </div>
 
   <p>
     Check out <a
@@ -46,10 +61,7 @@
   .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
+  .logo.firebase:hover {
+    filter: drop-shadow(0 0 2em #ffea00fb);
   }
 </style>

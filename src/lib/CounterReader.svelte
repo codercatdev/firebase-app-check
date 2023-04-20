@@ -65,6 +65,6 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #2f2f2f;
   }
 </style>

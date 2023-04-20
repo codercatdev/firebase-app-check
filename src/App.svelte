@@ -21,6 +21,11 @@
 
   import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
+  if (import.meta.env.DEV) {
+    // @ts-ignore
+    self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+  }
+
   initializeAppCheck(app, {
     provider: new ReCaptchaV3Provider(
       "6LdAIqQlAAAAAC4kq-bag4J-HmAAVe_pu7T75QOf"

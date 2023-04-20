@@ -16,6 +16,20 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+
+  // reCAPTCHA App Check
+
+  const {
+    initializeAppCheck,
+    ReCaptchaV3Provider,
+  } = require("firebase/app-check");
+
+  initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider(
+      "6LdAIqQlAAAAAC4kq-bag4J-HmAAVe_pu7T75QOf"
+    ),
+    isTokenAutoRefreshEnabled: true,
+  });
 </script>
 
 <main>

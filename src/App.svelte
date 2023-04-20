@@ -19,10 +19,7 @@
 
   // reCAPTCHA App Check
 
-  const {
-    initializeAppCheck,
-    ReCaptchaV3Provider,
-  } = require("firebase/app-check");
+  import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
   initializeAppCheck(app, {
     provider: new ReCaptchaV3Provider(

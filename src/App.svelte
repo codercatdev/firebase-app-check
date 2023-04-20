@@ -1,6 +1,6 @@
 <script>
   import Firebase_Logo_Logomark from "./assets/Firebase_Logo_Logomark.svg";
-  import ReCaptcha from "./assets/recaptcha_48dp.png";
+  import ReCaptcha from "./assets/no-recaptcha.png";
   import { initializeApp } from "firebase/app";
   import Counter from "./lib/Counter.svelte";
   import CounterReader from "./lib/CounterReader.svelte";
@@ -19,17 +19,17 @@
 
   // reCAPTCHA App Check
 
-  const {
-    initializeAppCheck,
-    ReCaptchaV3Provider,
-  } = require("firebase/app-check");
+  // const {
+  //   initializeAppCheck,
+  //   ReCaptchaV3Provider,
+  // } = require("firebase/app-check");
 
-  initializeAppCheck(app, {
-    provider: new ReCaptchaV3Provider(
-      "6LdAIqQlAAAAAC4kq-bag4J-HmAAVe_pu7T75QOf"
-    ),
-    isTokenAutoRefreshEnabled: true,
-  });
+  // initializeAppCheck(app, {
+  //   provider: new ReCaptchaV3Provider(
+  //     "6LdAIqQlAAAAAC4kq-bag4J-HmAAVe_pu7T75QOf"
+  //   ),
+  //   isTokenAutoRefreshEnabled: true,
+  // });
 </script>
 
 <main>
@@ -49,7 +49,10 @@
       <img src={ReCaptcha} class="logo" alt="Recaptcha Logo" />
     </a>
   </div>
-  <h1>Firebase with App Check (using reCAPTCHA)</h1>
+  <h1>
+    <div>Firebase <span class="without">WITHOUT</span></div>
+    <div>App Check (using reCAPTCHA)</div>
+  </h1>
 
   <div class="card">
     <Counter {app} />
@@ -66,6 +69,15 @@
 </main>
 
 <style>
+  h1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .without {
+    font-size: larger;
+    border-bottom: solid;
+  }
   .logo {
     height: 6em;
     padding: 1.5em;

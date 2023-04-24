@@ -20,6 +20,21 @@
       ]
     },
     {
+      "target": "v2",
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
       "target": "with",
       "public": "dist",
       "ignore": [

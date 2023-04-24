@@ -5,8 +5,11 @@
   "targets": {
     "ccd-firebase-app-check": {
       "hosting": {
+        "default": [
+          "ccd-firebase-app-check-not"
+        ],
         "with": [
-          "ccd-firebase-app-check"
+          "ccd-firebase-app-check-with"
         ],
         "without": [
           "ccd-firebase-app-check-without"

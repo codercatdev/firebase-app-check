@@ -6,7 +6,10 @@
     "ccd-firebase-app-check": {
       "hosting": {
         "default": [
-          "ccd-firebase-app-check-not"
+          "ccd-firebase-app-check"
+        ],
+        "v2": [
+          "ccd-firebase-app-check-v2"
         ],
         "with": [
           "ccd-firebase-app-check-with"
